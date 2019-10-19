@@ -12,7 +12,9 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.atguigu.crowd.funding.entity.Admin;
+import com.atguigu.crowd.funding.entity.Role;
 import com.atguigu.crowd.funding.mapper.AdminMapper;
+import com.atguigu.crowd.funding.mapper.RoleMapper;
 import com.atguigu.crowd.funding.service.api.AdminService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -24,6 +26,15 @@ public class CrowdFundingTest {
 	private AdminService adminService;
 	@Autowired
 	private AdminMapper adminMapper;
+	@Autowired
+	private RoleMapper roleMapper;
+	@Test
+	public void testSaveAdmin() {
+		for(int i=0;i<100;i++) {
+			roleMapper.insert(new Role(null, "role"+i));
+		}
+		
+	}
 	@Test
 	public void batchSaveAdmin() {
 		for(int i = 0; i < 500; i++) {

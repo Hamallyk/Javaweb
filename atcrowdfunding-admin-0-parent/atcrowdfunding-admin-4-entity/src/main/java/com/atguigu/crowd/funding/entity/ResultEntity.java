@@ -13,7 +13,7 @@ public class ResultEntity<T>{
 	}
 	
 	// 方便返回成功结果（携带查询结果情况）
-	public static <E> ResultEntity<E> successWithoutData(E data) {
+	public static <E> ResultEntity<E> successWithData(E data) {
 		return new ResultEntity<E>(SUCCESS, NO_MESSAGE, data);
 	}
 	
