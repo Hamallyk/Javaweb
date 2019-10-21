@@ -10,7 +10,7 @@
 <script type="text/javascript" src="script/my-admin.js"  charset="UTF-8" ></script>
 <script type="text/javascript">
 $(function() {
-	layer.msg(" hello layer");
+
 	// 初始化全局变量 
 	window.totalRecord = ${requestScope['PAGE_INFO'].total};
 	window.pageSize = ${requestScope['PAGE_INFO'].pageSize};

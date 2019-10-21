@@ -50,7 +50,7 @@ function doBatchRemove(adminIdArray) {
 			
 			if(result == "SUCCESS") {
 				// 跳转页面
-				window.location.href = "admin/query/for/search.html?pageNum="+window.pageNum+"&keyword="+window.keyword;
+				window.location.href ="admin/query/for/search.html?pageNum="+window.pageNum+"&keyword="+window.keyword;
 			}
 			
 			if(result == "FAILED") {
