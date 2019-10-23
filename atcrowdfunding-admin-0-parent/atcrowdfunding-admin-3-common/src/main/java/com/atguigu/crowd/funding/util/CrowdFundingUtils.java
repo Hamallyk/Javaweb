@@ -5,6 +5,8 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Collection;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 public class CrowdFundingUtils {
 		public static <K, V> boolean mapEffective(Map<K, V> map) {
 			return map!=null && map.size()>0;
@@ -15,6 +17,7 @@ public class CrowdFundingUtils {
 		public static boolean stringEffective(String source) {
 			return source!=null && source.length()>0;
 		}
+		
 		public static String md5(String source) {
 			if (!stringEffective(source)) {
 				throw new RuntimeException( CrowdFundingConstant.MESSAGE_CODE_INVALID);
@@ -39,5 +42,21 @@ public class CrowdFundingUtils {
 			}
 			
 			return builder.toString();
+		}
+		public static boolean checkAsyncRequest(HttpServletRequest request) {
+			
+			// 1.获取相应请求消息头
+			String accept = request.getHeader("Accept");
+			String xRequested = request.getHeader("X-Requested-With");
+			
+			// 2.判断请求消息头数据中是否包含目标特征
+			if(
+				(stringEffective(accept) && accept.contains("application/json")) 
+				|| 
+				(stringEffective(xRequested) && xRequested.contains("XMLHttpRequest")) ) {
+				return true;
+			}
+			
+			return false;
 		}
 }

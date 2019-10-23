@@ -37,7 +37,7 @@ public class RoleHandler {
 	public ResultEntity<List<Role>> getRoleListByIdList(@RequestBody List<Integer> roleIdList) {
 		
 		List<Role> roleList = roleService.getRoleListByIdList(roleIdList);
-		
+	
 		return ResultEntity.successWithData(roleList);
 	}
 	
